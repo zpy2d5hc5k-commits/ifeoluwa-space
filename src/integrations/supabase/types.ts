@@ -14,51 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      follows: {
-        Row: {
-          created_at: string
-          follower_id: string
-          following_id: string
-          id: string
-        }
-        Insert: {
-          created_at?: string
-          follower_id: string
-          following_id: string
-          id?: string
-        }
-        Update: {
-          created_at?: string
-          follower_id?: string
-          following_id?: string
-          id?: string
-        }
-        Relationships: []
-      }
-      likes: {
-        Row: {
-          created_at: string
-          id: string
-          target_id: string
-          target_type: Database["public"]["Enums"]["like_target"]
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          target_id: string
-          target_type: Database["public"]["Enums"]["like_target"]
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          target_id?: string
-          target_type?: Database["public"]["Enums"]["like_target"]
-          user_id?: string
-        }
-        Relationships: []
-      }
       posts: {
         Row: {
           author_id: string
@@ -128,30 +83,6 @@ export type Database = {
         }
         Relationships: []
       }
-      updates: {
-        Row: {
-          author_id: string
-          body: string
-          created_at: string
-          id: string
-          image_url: string | null
-        }
-        Insert: {
-          author_id: string
-          body: string
-          created_at?: string
-          id?: string
-          image_url?: string | null
-        }
-        Update: {
-          author_id?: string
-          body?: string
-          created_at?: string
-          id?: string
-          image_url?: string | null
-        }
-        Relationships: []
-      }
       user_roles: {
         Row: {
           id: string
@@ -185,7 +116,6 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "member"
-      like_target: "post" | "update"
       post_category: "book" | "skincare" | "lifestyle"
     }
     CompositeTypes: {
@@ -315,7 +245,6 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "member"],
-      like_target: ["post", "update"],
       post_category: ["book", "skincare", "lifestyle"],
     },
   },

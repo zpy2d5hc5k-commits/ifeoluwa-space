@@ -9,7 +9,6 @@ import Auth from "./pages/Auth.tsx";
 import Blog from "./pages/Blog.tsx";
 import Post from "./pages/Post.tsx";
 import Admin from "./pages/Admin.tsx";
-import Community from "./pages/Community.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -27,7 +26,6 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/post/:id" element={<Post />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/community" element={<Community />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
