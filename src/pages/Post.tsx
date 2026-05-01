@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, Star } from "lucide-react";
+import LikeButton from "@/components/LikeButton";
 
 type Post = { id: string; title: string; excerpt: string | null; content: string; cover_url: string | null; category: string; rating: number | null; created_at: string };
 
@@ -57,9 +58,12 @@ const Post = () => {
             <p key={i}>{para}</p>
           ))}
         </div>
-        <p className="text-sm text-muted-foreground mt-16 pt-8 border-t border-border">
-          Posted {new Date(post.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
-        </p>
+        <div className="flex items-center justify-between mt-16 pt-8 border-t border-border">
+          <p className="text-sm text-muted-foreground">
+            Posted {new Date(post.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
+          </p>
+          <LikeButton targetType="post" targetId={post.id} />
+        </div>
       </article>
       <Footer />
     </div>
